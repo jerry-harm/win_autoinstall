@@ -8,24 +8,24 @@ set "Apply=%*"
 cd /d "%~dp0" && ( if exist "%temp%\getadmin.vbs" del "%temp%\getadmin.vbs" ) && fsutil dirty query %systemdrive% 1>nul 2>nul || (  cmd /u /c echo Set UAC = CreateObject^("Shell.Application"^) : UAC.ShellExecute "cmd.exe", "/k cd ""%~sdp0"" && ""%~s0"" %Apply%", "", "runas", 1 >> "%temp%\getadmin.vbs" && "%temp%\getadmin.vbs" && exit /B )
 
 echo 安装qq
-./app/qq.exe /s /n /qn
+start /wait .\app\qq.exe /s /n /qn
 
 echo 安装微信
 rem 注意微信不能改名，否则不能静默安装
-./app/WeChatSetup.exe /S
+start /wait .\app\WeChatSetup.exe /S
 
 echo 安装7z
-./app/7z.exe /S
+start /wait .\app\7z.exe /S
 
 echo 安装winrar
-./app/winrar.exe /S
+start /wait .\app\winrar.exe /S
 
 echo 安装office
-start /wait "./app/Office Tool/Office Tool Plus.Console.exe" deploy /add O365HomePremRetail_zh-cn  Access,Outlook,OneNote  /edition 64
+start /wait ".\app\Office Tool\Office Tool Plus.Console.exe" deploy /add O365HomePremRetail_zh-cn /edition 64
 echo 激活程序
-"./app/Office Tool/Office Tool Plus.Console.exe" deploy /add O365HomePremRetail_zh-cn /edition 64
-"./app/Office Tool/Office Tool Plus.Console.exe" ospp /sethst kms.loli.best
-"./app/Office Tool/Office Tool Plus.Console.exe" ospp /act
+".\app\Office Tool\Office Tool Plus.Console.exe" ospp /inslicid ProPlus2021Volume
+".\app\Office Tool\Office Tool Plus.Console.exe" ospp /sethst kms.loli.best
+".\app\Office Tool\Office Tool Plus.Console.exe" ospp /act
 
 echo 批量激活
 slmgr.vbs /skms kms.loli.best
