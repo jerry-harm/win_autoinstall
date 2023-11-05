@@ -8,17 +8,17 @@ set "Apply=%*"
 cd /d "%~dp0" && ( if exist "%temp%\getadmin.vbs" del "%temp%\getadmin.vbs" ) && fsutil dirty query %systemdrive% 1>nul 2>nul || (  cmd /u /c echo Set UAC = CreateObject^("Shell.Application"^) : UAC.ShellExecute "cmd.exe", "/k cd ""%~sdp0"" && ""%~s0"" %Apply%", "", "runas", 1 >> "%temp%\getadmin.vbs" && "%temp%\getadmin.vbs" && exit /B )
 
 echo 安装qq
-start ./app/qq.exe /s /n /qn
+./app/qq.exe /s /n /qn
 
 echo 安装微信
 rem 注意微信不能改名，否则不能静默安装
-start ./app/WeChatSetup.exe /S
+./app/WeChatSetup.exe /S
 
 echo 安装7z
-start ./app/7z.exe /S
+./app/7z.exe /S
 
 echo 安装winrar
-start ./app/winrar.exe /S
+./app/winrar.exe /S
 
 echo 安装office
 start /wait './app/Office Tool/Office Tool Plus.Console.exe' deploy /add O365HomePremRetail_zh-cn  Access,Outlook,OneNote  /edition 64
