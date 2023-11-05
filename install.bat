@@ -21,7 +21,7 @@ echo 安装winrar
 ./app/winrar.exe /S
 
 echo 安装office
-start /wait './app/Office Tool/Office Tool Plus.Console.exe' deploy /add O365HomePremRetail_zh-cn  Access,Outlook,OneNote  /edition 64
+start /wait "./app/Office Tool/Office Tool Plus.Console.exe" deploy /add O365HomePremRetail_zh-cn  Access,Outlook,OneNote  /edition 64
 echo 激活程序
 "./app/Office Tool/Office Tool Plus.Console.exe" deploy /add O365HomePremRetail_zh-cn /edition 64
 "./app/Office Tool/Office Tool Plus.Console.exe" ospp /sethst kms.loli.best
