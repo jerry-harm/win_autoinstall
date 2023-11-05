@@ -14,8 +14,8 @@ echo 安装微信
 rem 注意微信不能改名，否则不能静默安装
 start /wait .\app\WeChatSetup.exe /S
 
-echo 安装7z
-start /wait .\app\7z.exe /S
+rem echo 安装7z
+rem start /wait .\app\7z.exe /S
 
 echo 安装winrar
 start /wait .\app\winrar.exe /S
@@ -28,6 +28,7 @@ echo 激活程序
 ".\app\Office Tool\Office Tool Plus.Console.exe" ospp /act
 
 echo 批量激活
+rem 这个只支持专业版批量激活
 slmgr.vbs /skms kms.loli.best
 slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
 slmgr.vbs /ato
