@@ -1,35 +1,35 @@
-echo off
-rem åŠŸèƒ½åŒ…æ‹¬æ‰¹é‡æ¿€æ´»ï¼Œå®‰è£…qqï¼Œwinrarï¼Œwechatï¼Œoffice
-rem è¯·åœ¨ç›®å½•ä¸‹å‡†å¤‡å¥½å®‰è£…åŒ…å¹¶å‘½åå¥½å¦‚qq.exe,winrar.exeï¼ŒWeChatSetup.exe,7z.exeå’Œofficetoolplusæ–‡ä»¶å¤¹
+@echo off
+rem ¹¦ÄÜ°üÀ¨ÅúÁ¿¼¤»î£¬°²×°qq£¬winrar£¬wechat£¬office
+rem ÇëÔÚÄ¿Â¼ÏÂ×¼±¸ºÃ°²×°°ü²¢ÃüÃûºÃÈçqq.exe,winrar.exe£¬WeChatSetup.exe,7z.exeºÍofficetoolplusÎÄ¼ş¼Ğ
 
 :: Change the working directory to current directory.
 :: Make sure you have administrator permission.
-echo è·å–æƒé™
+echo »ñÈ¡È¨ÏŞ
 set "Apply=%*"
 cd /d "%~dp0" && ( if exist "%temp%\getadmin.vbs" del "%temp%\getadmin.vbs" ) && fsutil dirty query %systemdrive% 1>nul 2>nul || (  cmd /u /c echo Set UAC = CreateObject^("Shell.Application"^) : UAC.ShellExecute "cmd.exe", "/k cd ""%~sdp0"" && ""%~s0"" %Apply%", "", "runas", 1 >> "%temp%\getadmin.vbs" && "%temp%\getadmin.vbs" && exit /B )
 
-echo å®‰è£…qq
+echo °²×°qq
 start /wait .\app\qq.exe /s /n /qn
 
-echo å®‰è£…å¾®ä¿¡
-rem æ³¨æ„å¾®ä¿¡ä¸èƒ½æ”¹åï¼Œå¦åˆ™ä¸èƒ½é™é»˜å®‰è£…
+echo °²×°Î¢ĞÅ
+rem ×¢ÒâÎ¢ĞÅ²»ÄÜ¸ÄÃû£¬·ñÔò²»ÄÜ¾²Ä¬°²×°
 start /wait .\app\WeChatSetup.exe /S
 
-rem echo å®‰è£…7z
+rem echo °²×°7z
 rem start /wait .\app\7z.exe /S
 
-echo å®‰è£…winrar
+echo °²×°winrar
 start /wait .\app\winrar.exe /S
 
-echo å®‰è£…office
+echo °²×°office
 ".\app\Office Tool\Office Tool Plus.Console.exe" deploy /add O365HomePremRetail_zh-cn /edition 64
-echo æ¿€æ´»ç¨‹åº
+echo ¼¤»î³ÌĞò
 ".\app\Office Tool\Office Tool Plus.Console.exe" ospp /inslicid ProPlus2021Volume
 ".\app\Office Tool\Office Tool Plus.Console.exe" ospp /sethst kms.loli.best
 ".\app\Office Tool\Office Tool Plus.Console.exe" ospp /act
 
-echo æ‰¹é‡æ¿€æ´»
-rem è¿™ä¸ªåªæ”¯æŒä¸“ä¸šç‰ˆæ‰¹é‡æ¿€æ´»
+echo ÅúÁ¿¼¤»î
+rem Õâ¸öÖ»Ö§³Ö×¨Òµ°æÅúÁ¿¼¤»î
 slmgr.vbs /skms kms.loli.best
 slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
 slmgr.vbs /ato
